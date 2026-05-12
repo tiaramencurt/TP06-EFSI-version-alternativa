@@ -1,27 +1,54 @@
 .navbar{
-   width: 100%;
+   width: 200px;
+   height: calc(100vh - 70px);
+
+   background-color: rgba(20, 25, 45, 0.9);
+   border-right: 1px solid rgba(255, 255, 255, 0.1);
 
    display: flex;
-   justify-content: center;
-   gap: 20px;
+   flex-direction: column;
+   gap: 30px;
 
-   margin-top: 20px;
+   padding: 30px 0px;
+
+   position: fixed;
+   left: 0;
+   top: 70px;
+
+   z-index: 50;
 }
 
 .navbar button{
-   width: 120px;
-   height: 40px;
+   width: 90%;
+   height: 50px;
+   margin-left: 5%;
 
    border: none;
    border-radius: 10px;
 
-   background-color: rgb(255,255,255);
+   background-color: rgba(255, 255, 255, 0.05);
+   color: rgb(240, 240, 240);
 
    cursor: pointer;
 
    transition: 0.3s;
+   
+   font-size: 16px;
+   font-weight: 500;
+   
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 10px;
 }
 
 .navbar button:hover{
-   transform: scale(1.05);
+   background: linear-gradient(135deg, rgba(225, 48, 108, 0.2), rgba(253, 29, 29, 0.2));
+   transform: translateX(10px);
+   border-left: 3px solid rgba(225, 48, 108, 0.8);
+}
+
+.navbar button.active{
+   background: linear-gradient(135deg, rgba(225, 48, 108, 0.3), rgba(253, 29, 29, 0.3));
+   border-left: 3px solid rgba(225, 48, 108, 1);
 }
