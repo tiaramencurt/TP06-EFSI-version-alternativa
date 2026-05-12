@@ -1,54 +1,56 @@
-.navbar{
-   width: 200px;
-   height: calc(100vh - 70px);
-
-   background-color: rgba(20, 25, 45, 0.9);
-   border-right: 1px solid rgba(255, 255, 255, 0.1);
-
-   display: flex;
-   flex-direction: column;
-   gap: 30px;
-
-   padding: 30px 0px;
-
-   position: fixed;
-   left: 0;
-   top: 70px;
-
-   z-index: 50;
+.navbar {
+  width: 452px;
+  height: calc(100vh - 80px);
+  background-color: #100A2C;
+  border-radius: 10px;
+  
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  
+  padding: 0;
+  position: fixed;
+  left: 0;
+  top: 80px;
+  z-index: 50;
+  
+  overflow-y: auto;
 }
 
-.navbar button{
-   width: 90%;
-   height: 50px;
-   margin-left: 5%;
-
-   border: none;
-   border-radius: 10px;
-
-   background-color: rgba(255, 255, 255, 0.05);
-   color: rgb(240, 240, 240);
-
-   cursor: pointer;
-
-   transition: 0.3s;
-   
-   font-size: 16px;
-   font-weight: 500;
-   
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   gap: 10px;
+.navbar button {
+  width: 100%;
+  height: 98px;
+  border: none;
+  background-color: transparent;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-size: 35px;
+  font-weight: 400;
+  font-family: 'Sarala';
+  
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 40px;
+  
+  padding-left: 70px;
+  
+  position: relative;
+  transition: 0.3s;
+  border-radius: 10px;
 }
 
-.navbar button:hover{
-   background: linear-gradient(135deg, rgba(225, 48, 108, 0.2), rgba(253, 29, 29, 0.2));
-   transform: translateX(10px);
-   border-left: 3px solid rgba(225, 48, 108, 0.8);
+.navbar button:first-child {
+  margin-top: 0;
 }
 
-.navbar button.active{
-   background: linear-gradient(135deg, rgba(225, 48, 108, 0.3), rgba(253, 29, 29, 0.3));
-   border-left: 3px solid rgba(225, 48, 108, 1);
+.navbar button:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.navbar button.active {
+  background-color: #1B1D43;
+  border-left: 13px solid;
+  border-image: linear-gradient(261.42deg, #405DE6 10.31%, #833AB4 26.6%, #C13584 51.95%, #E1306C 79.55%, #FD1D1D 97.2%) 1;
+  padding-left: 57px;
 }
