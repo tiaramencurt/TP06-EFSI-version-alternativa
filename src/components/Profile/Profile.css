@@ -1,0 +1,46 @@
+.profile{
+   width: 1000px;
+
+   margin: 40px auto;
+}
+
+.profileTop{
+   display: flex;
+   align-items: center;
+   gap: 40px;
+
+   margin-bottom: 50px;
+}
+
+.profileTop img{
+   width: 150px;
+   height: 150px;
+
+   border-radius: 50%;
+
+   object-fit: cover;
+}
+
+.profileTop h2{
+   margin-bottom: 10px;
+}
+
+.stats{
+   display: flex;
+   gap: 20px;
+
+   margin-top: 20px;
+}
+
+.profilePosts{
+   display: grid;
+   grid-template-columns: repeat(3,1fr);
+   gap: 10px;
+}
+
+.profilePosts img{
+   width: 100%;
+   height: 300px;
+
+   object-fit: cover;
+}

@@ -1,73 +1,192 @@
-# React + TypeScript + Vite
+Te falta solamente esto:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+* `components/Profile/index.tsx`
+* `components/Profile/Profile.css`
+* `README.md`
+* `main.tsx`
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+# components/Profile/index.tsx
 
-## React Compiler
+```tsx
+import './Profile.css'
+import user from '../../data/user'
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+interface Props{
+   posts: any[]
+}
 
-## Expanding the ESLint configuration
+function Profile({ posts }: Props) {
+   return (
+      <div className='profile'>
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+         <div className='profileTop'>
+            <img src={user.avatar} />
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+            <div>
+               <h2>{user.username}</h2>
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+               <p>{user.bio}</p>
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+               <div className='stats'>
+                  <span>{user.posts} publicaciones</span>
+                  <span>{user.followers} seguidores</span>
+                  <span>{user.following} seguidos</span>
+               </div>
+            </div>
+         </div>
+
+         <div className='profilePosts'>
+            {
+               posts.map((post) => (
+                  <img
+                     key={post.id}
+                     src={post.image}
+                  />
+               ))
+            }
+         </div>
+      </div>
+   )
+}
+
+export default Profile
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+# components/Profile/Profile.css
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```css
+.profile{
+   width: 1000px;
+
+   margin: 40px auto;
+}
+
+.profileTop{
+   display: flex;
+   align-items: center;
+   gap: 40px;
+
+   margin-bottom: 50px;
+}
+
+.profileTop img{
+   width: 150px;
+   height: 150px;
+
+   border-radius: 50%;
+
+   object-fit: cover;
+}
+
+.profileTop h2{
+   margin-bottom: 10px;
+}
+
+.stats{
+   display: flex;
+   gap: 20px;
+
+   margin-top: 20px;
+}
+
+.profilePosts{
+   display: grid;
+   grid-template-columns: repeat(3,1fr);
+   gap: 10px;
+}
+
+.profilePosts img{
+   width: 100%;
+   height: 300px;
+
+   object-fit: cover;
+}
 ```
+
+---
+
+# main.tsx
+
+```tsx
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App'
+import './App.css'
+
+ReactDOM.createRoot(document.getElementById('root')!).render(
+   <React.StrictMode>
+      <App />
+   </React.StrictMode>
+)
+```
+
+---
+
+# README.md
+
+````md
+# Catstagram
+
+Proyecto realizado con React + TypeScript inspirado en Instagram.
+
+## Tecnologías utilizadas
+
+- React
+- TypeScript
+- Axios
+- CSS
+
+## API utilizada
+
+- The Cat API
+
+## Componentes creados
+
+- Header
+- Feed
+- Post
+- PostModal
+- Profile
+- StoryBar
+- Navbar
+
+## Hooks utilizados
+
+### useState
+
+Se utilizó para:
+
+- Guardar publicaciones.
+- Manejar likes.
+- Abrir y cerrar modal.
+- Guardar publicación seleccionada.
+- Navegar entre feed y perfil.
+
+### useEffect
+
+Se utilizó para consumir la API al cargar la aplicación.
+
+## Componentización
+
+Cada componente tiene una responsabilidad específica.
+
+- Feed renderiza publicaciones.
+- Post muestra una publicación individual.
+- PostModal muestra información detallada.
+- Profile muestra el perfil emulado.
+
+## Diseño utilizado
+
+Diseño inspirado en Instagram y basado en Figma.
+
+## Cómo ejecutar el proyecto
+
+```bash
+npm install
+npm run dev
+```
+````
