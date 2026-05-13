@@ -1,73 +1,59 @@
-import { useEffect, useState } from 'react'
-import './App.css'
-
-import Header from './components/Header'
-import Feed from './components/Feed'
-import PostModal from './components/PostModal'
-import Profile from './components/Profile'
-import StoryBar from './components/StoryBar'
-import Navbar from './components/Navbar'
-
-import { getCats } from './services/catApi'
+import React, { useState } from 'react';
+import Header from './components/Header';
+import Navbar from './components/Navbar';
+import Profile from './components/Profile';
+import StoryBar from './components/StoryBar';
+import Feed from './components/Feed';
+import './App.css';
 
 function App() {
-   const [posts, setPosts] = useState<any[]>([])
-   const [selectedPost, setSelectedPost] = useState<any | null>(null)
-   const [view, setView] = useState('feed')
+  const [view, setView] = useState<'home' | 'profile'>('home');
 
-   useEffect(() => {
-      const fetchCats = async () => {
-         const data = await getCats()
-
-         const formattedPosts = data.map((cat: any, index: number) => ({
-            id: index,
-            image: cat.url,
-            username: `cat_user_${index + 1}`,
-            likes: Math.floor(Math.random() * 5000),
-            caption: 'Michi fachero 😺',
-            comments: [
-               'Que lindo gato 😍',
-               'Necesito adoptarlo',
-               'El mejor michi del feed'
-            ]
-         }))
-
-         setPosts(formattedPosts)
-      }
-
-      fetchCats()
-   }, [])
-
-   return (
-      <div className='app'>
-         <Header />
-
-         <Navbar setView={setView} />
-
-         {
-            view === 'feed'
-            ?
+  return (
+    <div className="app-layout">
+      <Header />
+      <div className="main-content">
+        <aside className="sidebar-left">
+          {/* Al hacer click en el componente Profile de la sidebar, vamos a la vista perfil */}
+          <div onClick={() => setView('profile')} style={{ cursor: 'pointer' }}>
+            <Profile />
+          </div>
+          <hr className="divider" />
+          <Navbar currentView={view} setView={setView} />
+        </aside>
+        
+        <main className="content-area">
+          {view === 'home' ? (
             <>
-               <StoryBar />
-
-               <Feed
-                  posts={posts}
-                  setSelectedPost={setSelectedPost}
-               />
+              <StoryBar />
+              <Feed />
             </>
-            :
-            <Profile posts={posts} />
-         }
+          ) : (
+            <div className="profile-page-view">
+              <div className="profile-header-expanded">
+                <Profile /> {/* Reutilizamos el componente para la cabecera del perfil */}
+              </div>
+              
+              <div className="profile-tabs">
+                <span className="tab active">POSTS</span>
+                <span className="tab">REELS</span>
+                <span className="tab">TAGGED</span>
+              </div>
 
-         {
-            selectedPost &&
-            <PostModal
-               post={selectedPost}
-               setSelectedPost={setSelectedPost}
-            />
-         }
+              <div className="profile-posts-grid">
+                {/* Simulamos las fotos propias del usuario */}
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => (
+                  <div key={item} className="profile-post-item">
+                    <img src={`https://picsum.photos/500/500?random=${item}`} alt="User post" />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </main>
       </div>
-   )
+    </div>
+  );
 }
 
-export default App
+export default App;

@@ -1,82 +1,62 @@
-.header {
-  width: 100%;
-  height: 80px;
-  background-color: #100A2C;
-  border-radius: 10px;
-  
+.main-header {
+  height: 70px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   padding: 0 40px;
-  position: fixed;
+  background-color: #0f0c1d;
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
   z-index: 100;
 }
 
-.header h1 {
-  font-size: 28px;
-  color: #A2A0AB;
-  font-weight: 400;
-  letter-spacing: 1px;
+.header-logo img {
+  filter: invert(1);
+  height: 35px;
 }
 
-.header input {
-  width: 500px;
-  height: 45px;
+.search-bar {
+  background-color: #1a162e;
+  display: flex;
+  align-items: center;
+  padding: 8px 15px;
+  border-radius: 8px;
+  width: 400px;
+}
+
+.search-icon {
+  color: #666;
+  margin-right: 10px;
+}
+
+.search-bar input {
+  background: transparent;
   border: none;
+  color: white;
+  width: 100%;
   outline: none;
-  background-color: #192648;
-  backdrop-filter: blur(125px);
-  color: #D7D7D7;
-  border-radius: 5px;
-  padding: 0 20px;
-  font-size: 20px;
 }
 
-.header input::placeholder {
-  color: #D7D7D7;
-}
-
-.header-icons {
+.header-actions {
   display: flex;
+  align-items: center;
   gap: 20px;
-  align-items: center;
 }
 
-.header-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: transparent;
-  border: none;
+.action-icon {
+  color: #ffffff;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #FFFFFF;
-  font-size: 20px;
-  transition: 0.3s;
-}
-
-.header-icon:hover {
-  transform: scale(1.1);
 }
 
 .new-post-btn {
-  padding: 10px 25px;
-  background: linear-gradient(261.42deg, #405DE6 10.31%, #833AB4 26.6%, #C13584 51.95%, #E1306C 79.55%, #FD1D1D 97.2%);
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   color: white;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
   cursor: pointer;
-  font-weight: 700;
-  font-size: 25px;
-  transition: 0.3s;
-}
-
-.new-post-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(225, 48, 108, 0.4);
 }

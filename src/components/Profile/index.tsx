@@ -1,45 +1,39 @@
-import './Profile.css'
-import user from '../../data/user'
+import React from 'react';
+import { currentUser } from '../../data/user';
+import { Users, Heart, CheckCircle } from 'lucide-react';
+import './Profile.css';
 
-interface Props{
-   posts: any[]
-}
-
-function Profile({ posts }: Props) {
-   return (
-      <div className='profile'>
-
-         <div className='profileTop'>
-
-            <div className='profileBorder'>
-               <img src={user.avatar} />
-            </div>
-
-            <div>
-               <h2>{user.username}</h2>
-
-               <p>{user.bio}</p>
-
-               <div className='stats'>
-                  <span>{user.posts} publicaciones</span>
-                  <span>{user.followers} seguidores</span>
-                  <span>{user.following} seguidos</span>
-               </div>
-            </div>
-         </div>
-
-         <div className='profilePosts'>
-            {
-               posts.map((post) => (
-                  <img
-                     key={post.id}
-                     src={post.image}
-                  />
-               ))
-            }
-         </div>
+const Profile: React.FC = () => {
+  return (
+    <div className="profile-section">
+      <div className="profile-image-container">
+        <img src={currentUser.profilePicture} alt={currentUser.fullName} className="profile-avatar" />
       </div>
-   )
-}
+      
+      <div className="profile-info">
+        <div className="name-verified">
+          <h2>{currentUser.fullName}</h2>
+          {currentUser.isVerified && <CheckCircle size={18} className="verified-icon" />}
+        </div>
+        <p className="username">@{currentUser.username}</p>
+      </div>
 
-export default Profile
+      <div className="stats-container">
+        <div className="stat-card">
+          <Users size={20} />
+          <div className="stat-text">
+            <span className="stat-value">{currentUser.followers}</span>
+          </div>
+        </div>
+        <div className="stat-card">
+          <Heart size={20} />
+          <div className="stat-text">
+            <span className="stat-value">{currentUser.likes}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Profile;

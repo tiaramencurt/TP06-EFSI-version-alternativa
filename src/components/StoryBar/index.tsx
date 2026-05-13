@@ -1,23 +1,23 @@
-import './StoryBar.css'
+import React from 'react';
+import { stories } from '../../data/user';
+import './StoryBar.css';
 
-function StoryBar() {
-
-   const stories = [1,2,3,4,5,6]
-
-   return (
-      <div className='storyBar'>
-         {
-            stories.map((story) => (
-               <div className='story' key={story}>
-                  <div className='storyBorder'>
-                     <img src={`https://i.pravatar.cc/100?img=${story}`} />
-                  </div>
-                  <p>cat_user</p>
-               </div>
-            ))
-         }
+const StoryBar: React.FC = () => {
+  return (
+    <div className="story-container">
+      <h2 className="section-title">STORIES</h2>
+      <div className="story-scroll">
+        {stories.map(story => (
+          <div key={story.id} className="story-item">
+            <div className="story-ring">
+              <img src={story.image} alt={story.username} />
+            </div>
+            <span>@{story.username}</span>
+          </div>
+        ))}
       </div>
-   )
-}
+    </div>
+  );
+};
 
-export default StoryBar
+export default StoryBar;

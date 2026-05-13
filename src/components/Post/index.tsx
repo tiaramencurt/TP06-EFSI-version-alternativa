@@ -1,57 +1,38 @@
-import { useState } from 'react'
-import './Post.css'
+import React, { useState } from 'react';
+import { Heart, MessageCircle, Send } from 'lucide-react';
+import './Post.css';
 
-interface Props{
-   post: any
-   setSelectedPost: React.Dispatch<React.SetStateAction<any>>
+interface PostProps {
+  id: string;
+  imageUrl: string;
+  username: string;
+  onClick: () => void;
 }
 
-function Post({ post, setSelectedPost }: Props) {
+const Post: React.FC<PostProps> = ({ imageUrl, username, onClick }) => {
+  const [liked, setLiked] = useState(false);
 
-   const [liked, setLiked] = useState(false)
-   const [likes, setLikes] = useState(post.likes)
-
-   const handleLike = () => {
-      setLiked(!liked)
-
-      if(!liked){
-         setLikes(likes + 1)
-      }
-      else{
-         setLikes(likes - 1)
-      }
-   }
-
-   return (
-      <div className='post'>
-         <div className='postTop'>
-            <img src='https://i.pravatar.cc/50' />
-            <p>{post.username}</p>
-         </div>
-
-         <img
-            className='postImage'
-            src={post.image}
-            onClick={() => setSelectedPost(post)}
-         />
-
-         <div className='postContent'>
-            <button onClick={handleLike}>
-               {
-                  liked
-                  ? '❤️'
-                  : '🤍'
-               }
-            </button>
-
-            <p>{likes} likes</p>
-
-            <span>
-               <strong>{post.username}</strong> {post.caption}
-            </span>
-         </div>
+  return (
+    <div className="post-card" onClick={onClick}>
+      <img src={imageUrl} alt="Cat post" className="post-image" />
+      <div className="post-overlay">
+        <div className="post-user">
+          <img src={`https://i.pravatar.cc/150?u=${username}`} alt="avatar" className="mini-avatar" />
+          <span>@{username}</span>
+        </div>
+        <div className="post-actions">
+          <Heart 
+            size={20} 
+            fill={liked ? "#ff007a" : "transparent"} 
+            color={liked ? "#ff007a" : "white"}
+            onClick={(e) => { e.stopPropagation(); setLiked(!liked); }}
+          />
+          <MessageCircle size={20} />
+          <Send size={20} />
+        </div>
       </div>
-   )
-}
+    </div>
+  );
+};
 
-export default Post
+export default Post;

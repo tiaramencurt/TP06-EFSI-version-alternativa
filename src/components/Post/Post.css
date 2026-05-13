@@ -1,85 +1,60 @@
-.post{
-   width: 100%;
-
-   margin-bottom: 28px;
-
-   background-color: rgb(5,8,60);
-
-   border-radius: 14px;
-
-   overflow: hidden;
-
-   break-inside: avoid;
-
-   box-shadow: 0px 0px 15px rgba(0,0,0,0.25);
-
-   transition: 0.3s;
+.post-card {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  break-inside: avoid;
+  margin-bottom: 20px;
 }
 
-.post:hover{
-   transform: translateY(-4px);
+.post-card:hover {
+  transform: scale(1.02);
 }
 
-.postTop{
-   display: flex;
-   align-items: center;
-   gap: 10px;
-
-   padding: 14px;
-
-   color: white;
+.post-image {
+  width: 100%;
+  display: block;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
 }
 
-.postTop img{
-   width: 36px;
-   height: 36px;
-
-   border-radius: 50%;
+.post-card:hover .post-image {
+  transform: rotate(0deg);
 }
 
-.postTop p{
-   font-size: 13px;
-
-   color: rgb(225,225,225);
+.post-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 15px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.postImage{
-   width: 100%;
-
-   display: block;
-
-   object-fit: cover;
-
-   cursor: pointer;
+.post-card:hover .post-overlay {
+  opacity: 1;
 }
 
-.postContent{
-   padding: 14px;
-
-   color: white;
+.post-user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
 }
 
-.postContent button{
-   border: none;
-   background: none;
-
-   font-size: 28px;
-
-   cursor: pointer;
-
-   margin-right: 8px;
+.mini-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
 }
 
-.postContent p{
-   margin: 8px 0px;
-
-   font-size: 14px;
-
-   font-weight: bold;
-}
-
-.postContent span{
-   font-size: 13px;
-
-   color: rgb(220,220,220);
+.post-actions {
+  display: flex;
+  gap: 10px;
 }
