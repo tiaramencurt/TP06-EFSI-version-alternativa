@@ -9,7 +9,9 @@ function StoryBar() {
          {
             stories.map((story) => (
                <div className='story' key={story}>
-                  <img src={`https://i.pravatar.cc/100?img=${story}`} />
+                  <div className='storyBorder'>
+                     <img src={`https://i.pravatar.cc/100?img=${story}`} />
+                  </div>
                   <p>cat_user</p>
                </div>
             ))

@@ -10,7 +10,10 @@ function Profile({ posts }: Props) {
       <div className='profile'>
 
          <div className='profileTop'>
-            <img src={user.avatar} />
+
+            <div className='profileBorder'>
+               <img src={user.avatar} />
+            </div>
 
             <div>
                <h2>{user.username}</h2>
