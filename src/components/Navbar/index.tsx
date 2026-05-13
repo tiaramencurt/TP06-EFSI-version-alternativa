@@ -127,7 +127,7 @@ function Navbar({ setView }: Props) {
                      fontFamily: 'Sarala'
                   }}
                >
-                  📺 İGTV
+                 <img src="" alt="" />İGTV
                </button>
 
                <button
