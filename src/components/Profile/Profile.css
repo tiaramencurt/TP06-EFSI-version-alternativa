@@ -13,12 +13,23 @@
 }
 
 .profileTop img {
-  width: 241px;
-  height: 241px;
-  border-radius: 500px;
-  object-fit: cover;
-  border: 5px solid;
-  border-image: linear-gradient(261.42deg, #405DE6 10.31%, #833AB4 26.6%, #C13584 51.95%, #E1306C 79.55%, #FD1D1D 97.2%) 1;
+width: 180px;
+   height: 180px;
+
+   border-radius: 50%;
+
+   object-fit: cover;
+
+   border: 4px solid;
+
+border-image: linear-gradient(
+261.42deg,
+#405DE6 10.31%,
+#833AB4 26.6%,
+#C13584 51.95%,
+#E1306C 79.55%,
+#FD1D1D 97.2%
+) 1;
 }
 
 .profileTop h2 {
