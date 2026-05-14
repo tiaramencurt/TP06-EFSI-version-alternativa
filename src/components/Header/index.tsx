@@ -6,7 +6,7 @@ const Header: React.FC = () => {
   return (
     <header className="main-header">
       <div className="header-logo">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1200px-Instagram_logo.svg.png" alt="Instagram" />
+        <img src="https://ik.imagekit.io/qqtube/Social_Media_Logos/%C4%B0nstagram-Profilime-Kim-Bakt%C4%B1-1_tCBJPR6ukzG.png?updatedAt=1662141771142" alt="Instagram" />
       </div>
       
       <div className="search-bar">
