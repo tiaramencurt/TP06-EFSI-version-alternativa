@@ -1,5 +1,5 @@
 import React from 'react';
-import { currentUser } from '../../data/user';
+import currentUser from '../../data/user';
 import { Users, Heart, CheckCircle } from 'lucide-react';
 import './Profile.css';
 

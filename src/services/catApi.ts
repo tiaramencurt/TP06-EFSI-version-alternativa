@@ -1,15 +1,9 @@
-import axios from 'axios';
+import axios from 'axios'
 
-const API_URL = 'https://api.thecatapi.com/v1/images/search';
+export const fetchCatPosts = async () => {
+   const response = await axios.get(
+      'https://api.thecatapi.com/v1/images/search?limit=10'
+   )
 
-export interface CatPost {
-  id: string;
-  url: string;
-  width: number;
-  height: number;
+   return response.data
 }
-
-export const fetchCatPosts = async (limit: number = 12): Promise<CatPost[]> => {
-  const response = await axios.get(`${API_URL}?limit=${limit}`);
-  return response.data;
-};
