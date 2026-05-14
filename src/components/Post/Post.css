@@ -19,10 +19,6 @@
   transition: transform 0.3s ease;
 }
 
-.post-card:hover .post-image {
-  transform: rotate(0deg);
-}
-
 .post-overlay {
   position: absolute;
   bottom: 0;
