@@ -2,7 +2,7 @@ export const currentUser = {
   id: 1,
   username: "ugur_mercan0",
   fullName: "Uğur Mercan",
-  bio: "Digital Creator | Photography & Mountains 🏔️",
+  bio: "Creador Digital | Fotografo y Montañas 🏔️",
   profilePicture: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80",
   followers: "121K",
   following: "842",
