@@ -1,8 +1,9 @@
+// Define los datos del usuario que está usando la aplicación actualmente
 const currentUser = {
    id: 1,
    username: 'ugur_mercan0',
-   fullName: 'Uğur Mercan',
-   bio: 'Creador Digital | Fotografo y Montañas 🏔️',
+   fullName: 'Ugur Mercan',
+   bio: 'Creador Digital | Fotografo y Montañas',
    profilePicture: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80',
    followers: '121K',
    following: '842',
@@ -11,6 +12,7 @@ const currentUser = {
    isVerified: true
 }
 
+// Lista de sstories de otras cuentas para mostrar en la barrra superior
 export const stories = [
    { id: 1, username: 'cake_master', image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=100&h=100&fit=crop' },
    { id: 2, username: 'city_lights', image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=100&h=100&fit=crop' },

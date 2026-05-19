@@ -108,7 +108,7 @@ Botones extendidos de interacción y barra inferior funcional para añadir nuevo
 Para cumplir con el requerimiento sin implementar sistemas de autenticación complejos (Login/Registro), se emuló una sesión activa mediante una persistencia de datos local estática ubicada en src/data/user.ts.
 
 Datos mostrados en el perfil:
-Nombre Completo: Uğur Mercan
+Nombre Completo: Ugur Mercan
 
 Nombre de Usuario (Handle): @ugur_mercan0
 
